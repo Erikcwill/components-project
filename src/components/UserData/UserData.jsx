@@ -1,6 +1,6 @@
 import { Button, TextField } from "@mui/material";
 import { useContext, useState } from "react";
-import RegisterValidations from "../../contexts/registerValidations";
+import RegisterValidations from "../../contexts/RegisterValidations";
 import useErrors from "../../Hooks/useErrors";
 
 export default function UserData({ onSubmit }) {

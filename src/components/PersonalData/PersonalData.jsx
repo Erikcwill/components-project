@@ -1,6 +1,6 @@
 import { Button, Switch, TextField, FormControlLabel } from "@mui/material";
 import { useContext, useState } from "react";
-import RegisterValidations from "../../contexts/registerValidations";
+import RegisterValidations from "../../contexts/RegisterValidations";
 import useErrors from "../../Hooks/useErrors";
 
 export default function PersonalData({ onSubmit }) {

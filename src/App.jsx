@@ -7,8 +7,9 @@ import {
   validateCPF,
   validateName,
   validatePassword,
-} from "./components/RegistrationForm/register";
-import RegisterValidations from "./contexts/registerValidations";
+} from "./models/register";
+import RegisterValidations from "./contexts/RegisterValidations";
+
 
 class App extends Component {
   render() {
