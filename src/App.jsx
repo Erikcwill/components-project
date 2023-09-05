@@ -3,6 +3,12 @@ import "./App.css";
 import RegistrationForm from "./components/RegistrationForm/RegistrationForm";
 import "@fontsource/roboto";
 import { Container, Typography } from "@mui/material";
+import {
+  validateCPF,
+  validateName,
+  validatePassword,
+} from "./components/RegistrationForm/register";
+import RegisterValidations from "./contexts/registerValidations";
 
 class App extends Component {
   render() {
@@ -11,7 +17,15 @@ class App extends Component {
         <Typography variant="h3" align="center" component="h1">
           Formulário de cadastro
         </Typography>
-        <RegistrationForm onSubmit={onSubmitForm} validateCPF={validateCPF} />
+        <RegisterValidations.Provider
+          value={{
+            cpf: validateCPF,
+            password: validatePassword,
+            name: validateName,
+          }}
+        >
+          <RegistrationForm onSubmit={onSubmitForm} />
+        </RegisterValidations.Provider>
       </Container>
     );
   }
@@ -19,14 +33,6 @@ class App extends Component {
 
 function onSubmitForm(data) {
   console.log(data);
-}
-
-function validateCPF(cpf){
-  if(cpf.length !== 11){
-    return {valid:false, helperText:"CPF deve ter 11 dígitos"}
-  }else{
-    return {valid:true, helperText:""}
-  }
 }
 
 export default App;
